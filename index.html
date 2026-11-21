@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EduQuest - JAMB WAEC</title>
+<style>
+body{font-family:Arial;background:#6a11cb;color:#333;margin:0;padding:10px}
+.box{background:white;border-radius:15px;padding:15px;margin-bottom:10px;text-align:center}
+button{padding:12px 18px;margin:5px;border:none;border-radius:10px;background:#ffd93d;font-weight:bold;cursor:pointer;font-size:16px}
+button:active{transform:scale(0.95)}
+#options button{display:block;width:100%;background:#eee}
+#options button:hover{background:#ffd93d}
+input{padding:12px;border-radius:10px;border:1px solid #ccc;width:40%}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>🎮 EduQuest V2</h2>
+<p>Learn Maths, Science, JAMB, WAEC</p>
+<input id="player1Name" placeholder="Player 1 name - e.g Pius">
+<input id="player2Name" placeholder="Player 2 name - e.g Joan">
+<br><br>
+<button onclick="saveNames()">Save Names</button>
+<p id="playerDisplay">Players: Guest</p>
+</div>
+
+<div class="box">
+<h3>🎮 CHOOSE WHAT TO PLAY</h3>
+<p id="modeDisplay" style="background:#f0e6ff;padding:10px;border-radius:10px;font-weight:bold;">You never choose yet!</p>
+<h4>📚 SUBJECTS</h4>
+<button onclick="setMode('maths')">➗ Maths</button>
+<button onclick="setMode('english')">📖 English</button>
+<button onclick="setMode('science')">🔬 Science</button>
+<button onclick="setMode('biology')">🧬 Biology</button>
+<button onclick="setMode('physics')">⚡ Physics</button>
+<button onclick="setMode('commercial')">💼 Commercial</button>
+<button onclick="setMode('art')">🎨 Art</button>
+<h4>🎓 EXAMS</h4>
+<button onclick="setMode('jamb')" style="background:#ff6b6b;color:white;">🎓 JAMB</button>
+<button onclick="setMode('waec')" style="background:#4ecdc4;">📚 WAEC</button>
+<h4>🎲 EVERYTHING</h4>
+<button onclick="setMode('mixed')">🎲 Mixed</button>
+</div>
+
+<div class="box">
+<p>⭐ Score: <span id="score">0</span> | ❤️ Lives: <span id="lives">❤️❤️❤️</span> | ⏰ Time: <span id="time">60s</span></p>
+<p id="turnInfo">Turn: Player 1</p>
+<h3 id="question">Press START GAME to play!</h3>
+<div id="options"></div>
+<p id="feedback"></p>
+<p id="fact"></p>
+<p id="gameOver" style="font-weight:bold;color:red;"></p>
+<button onclick="startGame()" style="background:#6a11cb;color:white;font-size:20px;padding:15px 30px;">▶️ START GAME</button>
+<button onclick="location.reload()">🔄 Restart</button>
+</div>
+
+<script>
+let mode="mixed", score=0, lives=3, timeLeft=60, timer=null, currentAnswer=null, player="Guest", player2="Player 2";
+
+let bank={
+maths:null,
+english:[{q:"Past tense of 'go'?",opts:["Went","Goed","Gone","Going"],ans:"Went"}],
+science:[{q:"What planet is Red Planet?",opts:["Mars","Venus","Jupiter","Saturn"],ans:"Mars"},{q:"Water formula?",opts:["H2O","CO2","O2","NaCl"],ans:"H2O"}],
+biology:[{q:"Powerhouse of cell?",opts:["Mitochondria","Nucleus","Ribosome","Golgi"],ans:"Mitochondria"}],
+physics:[{q:"Unit of Force?",opts:["Newton","Watt","Joule","Volt"],ans:"Newton"}],
+commercial:[{q:"What is Profit?",opts:["Selling - Cost","Cost - Selling","Cost + Selling","Tax"],ans:"Selling - Cost"}],
+art:[{q:"Who painted Mona Lisa?",opts:["Da Vinci","Picasso","Van Gogh","Rembrandt"],ans:"Da Vinci"}],
+jamb:[{q:"[JAMB] What is 2 + 2 x 3?",opts:["8","10","12","6"],ans:"8"},{q:"[JAMB] Synonym of Happy?",opts:["Joyful","Sad","Angry","Tired"],ans:"Joyful"},{q:"[JAMB] Capital of Lagos State?",opts:["Ikeja","Lekki","Abuja","Ibadan"],ans:"Ikeja"}],
+waec:[{q:"[WAEC] Capital of Nigeria?",opts:["Abuja","Lagos","Kano","Enugu"],ans:"Abuja"},{q:"[WAEC] 10% of 200?",opts:["20","10","30","40"],ans:"20"},{q:"[WAEC] Water formula?",opts:["H2O","CO2","O2","NaCl"],ans:"H2O"}]
+};
+
+function saveNames(){
+let p1=document.getElementById("player1Name").value.trim();
+let p2=document.getElementById("player2Name").value.trim();
+if(p1) player=p1;
+if(p2) player2=p2;
+document.getElementById("playerDisplay").textContent="Players: "+player+" vs "+player2;
+alert("Saved! "+player+" vs "+player2);
+}
+
+function setMode(m){
+mode=m;
+document.getElementById("modeDisplay").textContent="You choose: "+m.toUpperCase()+" - Press START GAME now!";
+alert("You choose "+m.toUpperCase()+"\nNow press START GAME!");
+}
+
+function startGame(){
+score=0; lives=3; timeLeft=60;
+document.getElementById("score").textContent=score;
+document.getElementById("lives").textContent="❤️❤️❤️";
+document.getElementById("gameOver").textContent="";
+document.getElementById("feedback").textContent="";
+clearInterval(timer);
+timer=setInterval(()=>{
+timeLeft--;
+document.getElementById("time").textContent=timeLeft+"s";
+if(timeLeft<=0){clearInterval(timer); document.getElementById("gameOver").textContent="Time up! "+player+", Final Score: "+score;}
+},1000);
+nextQuestion();
+}
+
+function nextQuestion(){
+let chosen=mode;
+if(mode==="mixed"){
+let keys=["science","biology","english","physics","commercial","art","jamb","waec","maths"];
+chosen=keys[Math.floor(Math.random()*keys.length)];
+}
+if(chosen==="maths"){
+let a=Math.floor(Math.random()*10)+1, b=Math.floor(Math.random()*10)+1;
+let ans=a+b;
+document.getElementById("question").textContent="[MATHS] What is "+a+" + "+b+" = ?";
+showOptions([ans,ans+2,ans-2,ans+5],ans);
+}else{
+let arr=bank[chosen];
+let qData=arr[Math.floor(Math.random()*arr.length)];
+document.getElementById("question").textContent=qData.q;
+showOptions(qData.opts,qData.ans);
+}
+}
+
+function showOptions(opts,ans){
+currentAnswer=ans;
+let html="";
+let shuffled=[...opts].sort(()=>Math.random()-0.5);
+shuffled.forEach(o=>{
+html+="<button onclick=\"checkAnswer('"+o+"')\">"+o+"</button>";
+});
+document.getElementById("options").innerHTML=html;
+}
+
+function checkAnswer(ans){
+if(String(ans)===String(currentAnswer)){
+score+=10;
+document.getElementById("feedback").textContent="Correct "+player+"! +10 🎉";
+}else{
+lives--;
+document.getElementById("feedback").textContent="Wrong! Answer is "+currentAnswer;
+document.getElementById("lives").textContent="❤️".repeat(lives);
+if(lives<=0){clearInterval(timer); document.getElementById("gameOver").textContent="Game Over! "+player+", Score: "+score; return;}
+}
+document.getElementById("score").textContent=score;
+setTimeout(nextQuestion,800);
+}
+</script>
+</body>
+</html>
