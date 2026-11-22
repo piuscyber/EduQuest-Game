@@ -1,4 +1,7 @@
-let score=0, score1=0, score2=0, lives=3, level=1, timeLeft=60, timer, turn=1;
+let score=0, 
+score1=0, 
+score2=0,
+lives=3, level=1, timeLeft=60, timer, turn=1;
 let player="Guest", player2="Player 2";
 let is2Player=false, mode="mixed";
 let currentAnswer=null;
