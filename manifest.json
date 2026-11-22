@@ -1,0 +1,24 @@
+{
+  "name": "EduQuest Game - V10.2",
+  "short_name": "EduQuest",
+  "description": "Professional CBT Game by Pius Cyber - JAMB WAEC NECO BECE",
+  "start_url": "/EduQuest-Game/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3135/3135755.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3135/3135755.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
