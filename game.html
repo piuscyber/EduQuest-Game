@@ -2,142 +2,166 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EduQuest V10.1 | Professional CBT - By Pius Cyber</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduQuest V10.2 - Professional CBT</title>
 <style>
-*{box-sizing:border-box;font-family:'Inter',Arial,sans-serif}
-body{margin:0;background:#F1F5F9;color:#0F172A}
-header{background:#0F172A;color:white;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0}
-.logo{font-weight:800;font-size:22px} .logo span{color:#22C55E}
-.coin{background:#FEF3C7;color:#92400E;padding:6px 12px;border-radius:20px;font-weight:700;font-size:13px}
-.wrap{max-width:640px;margin:20px auto;padding:0 15px}
-.card{background:white;border-radius:16px;padding:22px;box-shadow:0 4px 20px rgba(0,0,0,0.06);margin-bottom:16px}
-h2{margin:0 0 6px;font-size:22px} p.sub{color:#64748B;margin:0 0 18px;font-size:14px}
-.label{font-size:12px;font-weight:700;letter-spacing:1px;color:#64748B;text-transform:uppercase;margin:18px 0 8px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.examBtn{border:1px solid #E2E8F0;background:white;padding:14px;border-radius:12px;text-align:left;cursor:pointer}
-.examBtn b{display:block;font-size:15px} .examBtn small{color:#64748B}
-.examBtn.active{border:2px solid #22C55E;background:#F0FDF4}
-.avatarRow{display:flex;gap:8px}
-.avatar{font-size:26px;padding:10px 14px;border:2px solid #E2E8F0;border-radius:12px;background:white;cursor:pointer}
-input{width:100%;padding:12px;border:1px solid #E2E8F0;border-radius:10px;margin-top:8px}
-.subjectBtn{padding:9px 14px;border-radius:20px;border:1px solid #E2E8F0;background:white;cursor:pointer;font-weight:600}
-.subjectBtn.active{background:#0F172A;color:white}
-.startBtn{width:100%;padding:15px;background:#22C55E;color:white;border:none;border-radius:12px;font-size:17px;font-weight:800;cursor:pointer;margin-top:18px}
-.topBar{display:flex;justify-content:space-between;font-weight:700;font-size:14px;background:#0F172A;color:white;padding:12px 16px;border-radius:12px}
-.progress{height:8px;background:#E2E8F0;border-radius:10px;overflow:hidden;margin:14px 0}
-.progress div{height:100%;background:#22C55E;width:0%;transition:0.3s}
-#q{font-size:20px;font-weight:700;line-height:1.4}
-.opt{display:block;width:100%;padding:14px;background:#F8FAFC;border:1.5px solid #CBD5E1;border-radius:12px;margin:8px 0;text-align:left;cursor:pointer;font-size:16px;font-weight:600;color:#0F172A}
-.toolBtn{padding:10px 14px;border-radius:10px;border:1px solid #E2E8F0;background:white;font-weight:700;cursor:pointer}
-.shareBtn{width:100%;padding:14px;background:#25D366;color:white;border:none;border-radius:12px;font-weight:800;cursor:pointer}
-.againBtn{width:100%;padding:14px;background:#0F172A;color:white;border:none;border-radius:12px;font-weight:800;cursor:pointer;margin-top:10px}
-.badge{display:inline-block;background:#DCFCE7;color:#166534;padding:6px 12px;border-radius:20px;font-weight:700;font-size:13px}
-.footer{text-align:center;color:#94A3B8;font-size:12px;padding:20px}
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{margin:0;background:#0f172a;color:white;text-align:center;padding:12px}
+.card{background:#1e293b;max-width:520px;margin:auto;padding:18px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+h1{color:#facc15;margin:5px 0} .sub{color:#94a3b8;font-size:13px}
+input,select,button{width:100%;padding:12px;margin:7px 0;border-radius:10px;border:none;font-size:16px}
+input,select{background:#0f172a;color:white;border:1px solid #334155}
+button{background:#22c55e;color:white;font-weight:bold;cursor:pointer}
+button.blue{background:#3b82f6} button.orange{background:#f97316} button.purple{background:#a855f7} button.red{background:#ef4444}
+.qbox{background:#0f172a;padding:14px;border-radius:12px;text-align:left;margin-top:10px}
+.opt{background:#1e293b;padding:11px;margin:6px 0;border-radius:10px;cursor:pointer;border:1px solid #334155}
+.opt:hover{background:#334155}
+#timer{font-size:22px;font-weight:bold;color:#4ade80} #timer.low{color:#ef4444;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.4}}
+.top{display:flex;justify-content:space-between;font-size:14px}
+.badge{background:#facc15;color:black;padding:3px 8px;border-radius:20px;font-weight:bold}
+table{width:100%;font-size:13px;border-collapse:collapse;margin-top:10px}
+td,th{padding:6px;border-bottom:1px solid #334155}
+.hidden{display:none}
 </style>
 </head>
 <body>
-<header><div class="logo">Edu<span>Quest</span> <small style="font-weight:400;font-size:12px;opacity:0.7">V10.1 CBT</small></div><div class="coin">🪙 <span id="coins">0</span> Coins</div></header>
-<div class="wrap">
-<div class="card" id="setup">
-<h2>Welcome back, Champion 👋</h2>
-<p class="sub">WAEC, NECO, BECE, JAMB & Common Entrance. 20 Random Questions, No Repeat. By Pius Cyber.</p>
-<p style="font-size:13px;color:#64748B">🏆 Leaderboard: <b id="board"></b></p>
-<div class="label">1. Players</div>
-<div style="display:flex;gap:20px;flex-wrap:wrap">
-<div><small>Player 1 - <span id="av1">🦁</span></small><div class="avatarRow"><button class="avatar" onclick="pickAvatar(1,'🦁',this)">🦁</button><button class="avatar" onclick="pickAvatar(1,'🦅',this)">🦅</button><button class="avatar" onclick="pickAvatar(1,'🐯',this)">🐯</button><button class="avatar" onclick="pickAvatar(1,'🤖',this)">🤖</button></div><input id="p1" value="pius"></div>
-<div><small>Player 2 - <span id="av2">🤖</span></small><div class="avatarRow"><button class="avatar" onclick="pickAvatar(2,'🦁',this)">🦁</button><button class="avatar" onclick="pickAvatar(2,'🦅',this)">🦅</button><button class="avatar" onclick="pickAvatar(2,'🐯',this)">🤖</button><button class="avatar" onclick="pickAvatar(2,'🤖',this)">🤖</button></div><input id="p2" value="peter"></div>
+<div class="card">
+<h1>🎓 EduQuest V10.2</h1>
+<div class="sub">Professional CBT • Timer • Sound • Forever Leaderboard<br>By Pius Cyber 🇳🇬</div>
+
+<div id="setup">
+<input id="p1" placeholder="Player 1 Name e.g. pius" value="pius">
+<input id="p2" placeholder="Player 2 Name e.g. peter" value="peter">
+<select id="exam">
+<option value="JAMB">🎓 JAMB - UTME (30 mins)</option>
+<option value="WAEC">📕 WAEC - SS3 (20 mins)</option>
+<option value="NECO">📙 NECO - SS3 (20 mins)</option>
+<option value="BECE">📘 BECE / JSS3 (15 mins)</option>
+<option value="COMMON">📗 Common Entrance (15 mins)</option>
+</select>
+<select id="subject"><option value="All">All Subjects</option><option>Maths</option><option>English</option><option>Science</option></select>
+<button class="blue" onclick="startGame()">▶ START EXAMINATION</button>
+<button class="purple" onclick="showBoard()">🏆 VIEW LEADERBOARD</button>
+<div id="board"></div>
 </div>
-<div class="label">2. Select Examination</div>
-<div class="grid">
-<button class="examBtn" onclick="setExam('primary',this)"><b>📗 Primary 6</b><small>Common Entrance</small></button>
-<button class="examBtn" onclick="setExam('junior',this)"><b>📘 Junior WAEC</b><small>BECE • JSS3</small></button>
-<button class="examBtn" onclick="setExam('waec',this)"><b>📕 WAEC</b><small>SS3</small></button>
-<button class="examBtn" onclick="setExam('neco',this)"><b>📙 NECO</b><small>SS3</small></button>
-<button class="examBtn" onclick="setExam('jamb',this)"><b>🎓 JAMB</b><small>UTME</small></button>
-<button class="examBtn" onclick="setExam('daily',this)"><b>🔥 Daily Challenge</b><small>+50 Coins</small></button>
+
+<div id="game" class="hidden">
+<div class="top"><span id="turnLabel"></span><span id="timer">30:00</span><span>🪙 <b id="coins">0</b> ❤️ <b id="lives">5</b></span></div>
+<div style="margin:8px 0"><span class="badge" id="qCount">Q 1/20</span> <span class="badge" id="examLabel">JAMB</span></div>
+<div class="qbox"><div id="qText" style="font-size:18px;font-weight:bold"></div><div id="opts"></div></div>
+<button class="orange" onclick="use5050()">🎯 50/50 Lifeline</button>
 </div>
-<div class="label">3. Subject</div>
-<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="subjectBtn active" onclick="setSub('Mixed',this)">All Subjects</button><button class="subjectBtn" onclick="setSub('Maths',this)">Mathematics</button><button class="subjectBtn" onclick="setSub('English',this)">English</button><button class="subjectBtn" onclick="setSub('Science',this)">Science</button></div>
-<p id="modeTxt" style="font-size:13px;color:#22C55E;font-weight:700;margin-top:12px">✓ Selected: Daily Challenge • All Subjects</p>
-<button class="startBtn" onclick="startGame()">Start Examination →</button>
+
+<div id="result" class="hidden">
+<h2 id="resTitle"></h2>
+<p id="resDetail" style="white-space:pre-line;font-size:16px;line-height:1.6"></p>
+<button class="blue" onclick="shareResult()">📤 SHARE TO WHATSAPP</button>
+<button onclick="location.reload()">🔁 PLAY AGAIN - REMATCH</button>
 </div>
-<div class="card" id="game" style="display:none">
-<div class="topBar"><span id="topInfo"></span><span>⏰ <span id="timer">60</span></span></div>
-<div class="progress"><div id="prog"></div></div>
-<p style="display:flex;justify-content:space-between;font-size:13px;color:#64748B"><span>❤️ Lives: <b id="lives">5</b></span><span>Score: <b id="score">0</b></span><span>Turn: <b id="turnTxt"></b></span></p>
-<p id="q"></p><div id="opts"></div>
-<div style="display:flex;gap:8px;margin-top:12px"><button class="toolBtn" onclick="buyLife()">🪙 Buy Life (30)</button><button class="toolBtn" onclick="use5050()">⚡ 50/50 (10)</button></div>
 </div>
-<div class="card" id="over" style="display:none;text-align:center">
-<span class="badge" id="examBadge">RESULT</span>
-<h2 style="margin-top:14px">Examination Complete</h2>
-<p id="finalScore" style="font-size:16px"></p>
-<p id="examResult" style="font-weight:800;font-size:18px"></p>
-<p id="gradeDetail" style="color:#64748B;font-size:14px"></p>
-<button class="shareBtn" onclick="shareScore()">📱 Share Result on WhatsApp</button>
-<button class="againBtn" onclick="location.reload()">↺ Take Another Exam</button>
-</div>
-<div class="footer">© 2026 EduQuest V10.1 by Pius Cyber • Made in Nigeria 🇳🇬</div>
-</div>
+
 <script>
-let coins=parseInt(localStorage.getItem('eq_coins')||'0');
-let wins=JSON.parse(localStorage.getItem('eq_wins')||'{"pius":0,"peter":0}');
-let av1='🦁',av2='🤖',mode='daily',subject='Mixed',lives=5,qIndex=0,timeLeft=60,timerInt,currentQ,turn=1,scores={1:0,2:0};
-let shuffledQueue=[],totalQ=0,QUESTIONS_PER_EXAM=20,answeredCount={1:0,2:0},correctCount={1:0,2:0};
-document.getElementById('coins').innerText=coins;
-document.getElementById('board').innerText='pius '+(wins.pius||0)+' - '+(wins.peter||0)+' peter';
-function sound(t){try{let c=new (window.AudioContext||window.webkitAudioContext)();let o=c.createOscillator();o.connect(c.destination);o.frequency.value=t=='good'?880:200;o.start();setTimeout(()=>o.stop(),t=='good'?250:400);}catch(e){}}
-function pickAvatar(p,a,el){if(p==1){av1=a;document.getElementById('av1').innerText=a;}else{av2=a;document.getElementById('av2').innerText=a;}sound('good');}
-function setExam(m,el){mode=m;document.querySelectorAll('.examBtn').forEach(b=>b.classList.remove('active'));if(el)el.classList.add('active');document.getElementById('modeTxt').innerText='✓ Selected: '+m.toUpperCase()+' • '+subject;sound('good');}
-function setSub(s,el){subject=s;document.querySelectorAll('.subjectBtn').forEach(b=>b.classList.remove('active'));if(el)el.classList.add('active');document.getElementById('modeTxt').innerText='✓ Selected: '+mode.toUpperCase()+' • '+s;sound('good');}
-function saveCoins(){localStorage.setItem('eq_coins',coins);document.getElementById('coins').innerText=coins;}
-let Q={
-primary:[
-{q:"5 + 7 = ?",a:["10","12","13","11"],c:1,sub:"Maths"},{q:"9 - 4 = ?",a:["5","6","4","3"],c:0,sub:"Maths"},{q:"3 x 4 = ?",a:["10","12","14","7"],c:1,sub:"Maths"},{q:"20 / 4 = ?",a:["4","5","6","2"],c:1,sub:"Maths"},{q:"Capital of Nigeria?",a:["Lagos","Abuja","Enugu","Kano"],c:1,sub:"English"},{q:"Animal says 'meow'?",a:["Dog","Cat","Goat","Cow"],c:1,sub:"Science"},{q:"Days in a week?",a:["5","6","7","8"],c:2,sub:"Maths"},{q:"First letter of alphabet?",a:["B","A","C","D"],c:1,sub:"English"},{q:"Colour of Nigerian flag?",a:["Green White Green","Red White","Blue White","Green Yellow"],c:0,sub:"Science"},{q:"Dog has how many legs?",a:["2","3","4","6"],c:2,sub:"Science"},{q:"Opposite of 'Hot'?",a:["Warm","Cold","Big","Fast"],c:1,sub:"English"},{q:"10 + 15 = ?",a:["20","25","30","15"],c:1,sub:"Maths"},{q:"6 x 6 = ?",a:["36","30","32","42"],c:0,sub:"Maths"},{q:"100 - 25 = ?",a:["65","75","85","70"],c:1,sub:"Maths"},{q:"Which is a fruit?",a:["Carrot","Mango","Cabbage","Potato"],c:1,sub:"Science"},{q:"Plural of 'Boy'?",a:["Boys","Boyses","Boyes","Boies"],c:0,sub:"English"},{q:"How many months in a year?",a:["10","11","12","13"],c:2,sub:"Maths"},{q:"Sun rises from?",a:["West","East","North","South"],c:1,sub:"Science"},{q:"Opposite of 'Big'?",a:["Large","Small","Tall","Wide"],c:1,sub:"English"},{q:"50 + 50 = ?",a:["90","100","110","80"],c:1,sub:"Maths"},{q:"Which animal flies?",a:["Dog","Bird","Cat","Fish"],c:1,sub:"Science"},{q:"Past tense of 'Eat'?",a:["Eated","Ate","Eaten","Eating"],c:1,sub:"English"},{q:"7 + 8 = ?",a:["14","15","16","13"],c:1,sub:"Maths"},{q:"Colour of banana?",a:["Red","Yellow","Blue","Black"],c:1,sub:"Science"},{q:"What is 2 + 2 + 2?",a:["4","6","8","5"],c:1,sub:"Maths"},{q:"First month of year?",a:["February","January","March","December"],c:1,sub:"English"},{q:"How many hours in a day?",a:["12","24","48","36"],c:1,sub:"Science"},{q:"9 x 3 = ?",a:["27","24","21","30"],c:0,sub:"Maths"},{q:"Which is vowel?",a:["B","C","A","D"],c:2,sub:"English"},{q:"Water is?",a:["Solid","Liquid","Gas","None"],c:1,sub:"Science"}
-],
-junior:[
-{q:"2x + 4 = 10, x = ?",a:["2","3","4","5"],c:1,sub:"Maths"},{q:"Past tense of 'go'?",a:["Goed","Went","Gone","Going"],c:1,sub:"English"},{q:"Symbol for water?",a:["CO2","H2O","O2","NaCl"],c:1,sub:"Science"},{q:"Largest state by area?",a:["Lagos","Kano","Niger","Borno"],c:2,sub:"English"},{q:"15% of 200?",a:["20","30","25","15"],c:1,sub:"Maths"},{q:"Photosynthesis in?",a:["Root","Leaf","Stem","Flower"],c:1,sub:"Science"},{q:"7² = ?",a:["14","49","21","77"],c:1,sub:"Maths"},{q:"Plural of 'woman'?",a:["Womans","Women","Womens","Womanes"],c:1,sub:"English"},{q:"Closest planet to sun?",a:["Venus","Mercury","Mars","Earth"],c:1,sub:"Science"},{q:"100 - 37 = ?",a:["63","73","67","53"],c:0,sub:"Maths"},{q:"Synonym of 'Brave'?",a:["Coward","Fearless","Weak","Sad"],c:1,sub:"English"},{q:"Gas we breathe in?",a:["Carbon Dioxide","Oxygen","Nitrogen","Smoke"],c:1,sub:"Science"},{q:"Solve: 3x = 21, x = ?",a:["6","7","8","9"],c:1,sub:"Maths"},{q:"Opposite of 'Ancient'?",a:["Old","Modern","Past","Early"],c:1,sub:"English"},{q:"Which is a prime number?",a:["4","6","7","8"],c:2,sub:"Maths"},{q:"Largest ocean?",a:["Atlantic","Indian","Pacific","Arctic"],c:2,sub:"Science"},{q:"Correct spelling?",a:["Recieve","Receive","Recive","Receve"],c:1,sub:"English"},{q:"What is 12²?",a:["124","144","132","120"],c:1,sub:"Maths"},{q:"Force unit?",a:["Joule","Newton","Watt","Volt"],c:1,sub:"Science"},{q:"Past tense of 'Buy'?",a:["Buyed","Bought","Buying","Buys"],c:1,sub:"English"},{q:"What is 2/3 of 12?",a:["6","8","9","4"],c:1,sub:"Maths"},{q:"Capital of Ghana?",a:["Accra","Lagos","Kumasi","Abuja"],c:0,sub:"English"},{q:"Which gas do plants need?",a:["Oxygen","Carbon Dioxide","Nitrogen","Hydrogen"],c:1,sub:"Science"},{q:"LCM of 4 and 6?",a:["8","12","10","24"],c:1,sub:"Maths"},{q:"Synonym of 'Happy'?",a:["Sad","Joyful","Angry","Tired"],c:1,sub:"English"},{q:"Human body temperature?",a:["37°C","40°C","30°C","25°C"],c:0,sub:"Science"},{q:"What is 5! ?",a:["20","60","120","100"],c:2,sub:"Maths"},{q:"Antonym of 'Rich'?",a:["Poor","Big","Tall","Happy"],c:0,sub:"English"},{q:"Chemical symbol for Gold?",a:["Ag","Au","Gd","Go"],c:1,sub:"Science"},{q:"What is 81 / 9?",a:["8","9","7","11"],c:1,sub:"Maths"}
-],
-waec:[
-{q:"x + 5 = 12, x = ?",a:["5","6","7","8"],c:2,sub:"Maths"},{q:"She ___ to school yesterday.",a:["go","goes","went","gone"],c:2,sub:"English"},{q:"Organ pumps blood?",a:["Liver","Lung","Heart","Kidney"],c:2,sub:"Science"},{q:"3² + 4² = ?",a:["25","12","20","7"],c:0,sub:"Maths"},{q:"Antonym of 'Brave'?",a:["Bold","Coward","Strong","Fearless"],c:1,sub:"English"},{q:"Force = ?",a:["Mass x Speed","Mass x Acceleration","Mass + Speed","Mass / Time"],c:1,sub:"Science"},{q:"5x = 35, x = ?",a:["5","6","7","8"],c:2,sub:"Maths"},{q:"Correct spelling",a:["Occassion","Occasion","Ocasion","Occason"],c:1,sub:"English"},{q:"Formula for Salt?",a:["H2O","NaCl","CO2","O2"],c:1,sub:"Science"},{q:"12 x 8 = ?",a:["86","96","106","88"],c:1,sub:"Maths"},{q:"'He is ___ honest man'",a:["a","an","the","some"],c:1,sub:"English"},{q:"Organ filters blood?",a:["Heart","Liver","Kidney","Lung"],c:2,sub:"Science"},{q:"Solve: 2x - 3 = 7",a:["4","5","6","3"],c:1,sub:"Maths"},{q:"Synonym of 'Abundant'?",a:["Scarce","Plentiful","Small","Rare"],c:1,sub:"English"},{q:"Speed = ?",a:["Distance/Time","Time/Distance","Distance x Time","Mass/Time"],c:0,sub:"Science"},{q:"Square root of 625?",a:["15","25","35","20"],c:1,sub:"Maths"},{q:"Past tense of 'Teach'?",a:["Teached","Taught","Teaching","Teaches"],c:1,sub:"English"},{q:"Which is acid?",a:["NaOH","HCl","NaCl","Water"],c:1,sub:"Science"},{q:"If y = 3x + 2, x=2, y=?",a:["6","8","10","5"],c:1,sub:"Maths"},{q:"Opposite of 'Expand'?",a:["Grow","Contract","Increase","Extend"],c:1,sub:"English"},{q:"Energy unit?",a:["Watt","Joule","Volt","Ampere"],c:1,sub:"Science"},{q:"What is 15% of 300?",a:["30","45","50","35"],c:1,sub:"Maths"},{q:"Choose correct: '___ going to school'",a:["Their","They're","There","Thier"],c:1,sub:"English"},{q:"Photosynthesis produces?",a:["CO2","Oxygen","Nitrogen","Hydrogen"],c:1,sub:"Science"},{q:"What is 10³?",a:["100","1000","10000","30"],c:1,sub:"Maths"},{q:"Nigeria independence year?",a:["1960","1963","1970","1959"],c:0,sub:"English"},{q:"Which is a mammal?",a:["Shark","Dog","Lizard","Frog"],c:1,sub:"Science"},{q:"Simplify: 4(2x+3)",a:["8x+12","8x+3","6x+12","8x+7"],c:0,sub:"Maths"},{q:"Antonym of 'Generous'?",a:["Kind","Stingy","Nice","Rich"],c:1,sub:"English"},{q:"Boiling point of water?",a:["90°C","100°C","80°C","120°C"],c:1,sub:"Science"}
-],
-neco:[
-{q:"2/4 simplest form?",a:["1/2","2/2","1/4","2/3"],c:0,sub:"Maths"},{q:"'He is ___ honest man'",a:["a","an","the","some"],c:1,sub:"English"},{q:"Powerhouse of cell?",a:["Nucleus","Mitochondria","Ribosome","Golgi"],c:1,sub:"Science"},{q:"Nigeria independence?",a:["1960","1963","1970","1959"],c:0,sub:"English"},{q:"√144 = ?",a:["11","12","14","16"],c:1,sub:"Maths"},{q:"Gas plants absorb?",a:["Oxygen","Carbon Dioxide","Nitrogen","Hydrogen"],c:1,sub:"Science"},{q:"15 x 3 = ?",a:["35","45","55","40"],c:1,sub:"Maths"},{q:"Past tense of 'write'?",a:["Writed","Wrote","Written","Writing"],c:1,sub:"English"},{q:"Boiling point water?",a:["90°C","100°C","80°C","120°C"],c:1,sub:"Science"},{q:"81 / 9 = ?",a:["8","9","7","11"],c:1,sub:"Maths"},{q:"Opposite of 'Rich'?",a:["Poor","Big","Tall","Happy"],c:0,sub:"English"},{q:"Which is mammal?",a:["Shark","Dog","Lizard","Frog"],c:1,sub:"Science"},{q:"What is 7 x 9?",a:["63","56","72","60"],c:0,sub:"Maths"},{q:"Synonym of 'Fast'?",a:["Slow","Quick","Late","Weak"],c:1,sub:"English"},{q:"Chemical symbol for Iron?",a:["Ir","Fe","In","Io"],c:1,sub:"Science"},{q:"What is 20²?",a:["200","400","40","2000"],c:1,sub:"Maths"},{q:"Correct: 'She ___ beautiful'",a:["are","is","were","be"],c:1,sub:"English"},{q:"Which planet is red?",a:["Venus","Mars","Jupiter","Saturn"],c:1,sub:"Science"},{q:"Solve: x + 9 = 20",a:["9","11","10","12"],c:1,sub:"Maths"},{q:"Plural of 'Child'?",a:["Childs","Children","Childes","Childrens"],c:1,sub:"English"},{q:"H2O is?",a:["Salt","Water","Oxygen","Fire"],c:1,sub:"Science"},{q:"What is 1000 / 10?",a:["10","100","1000","50"],c:1,sub:"Maths"},{q:"Antonym of 'Love'?",a:["Like","Hate","Enjoy","Care"],c:1,sub:"English"},{q:"Which organ helps breathing?",a:["Heart","Lung","Liver","Kidney"],c:1,sub:"Science"},{q:"What is 3³?",a:["9","27","18","12"],c:1,sub:"Maths"},{q:"Past tense of 'Sing'?",a:["Singed","Sang","Sung","Singing"],c:1,sub:"English"},{q:"Largest organ in body?",a:["Heart","Skin","Liver","Lung"],c:1,sub:"Science"},{q:"What is 60% of 100?",a:["40","60","50","70"],c:1,sub:"Maths"},{q:"Synonym of 'Brave'?",a:["Coward","Bold","Weak","Sad"],c:1,sub:"English"},{q:"Which gas is in balloon?",a:["Oxygen","Helium","Nitrogen","CO2"],c:1,sub:"Science"}
-],
-jamb:[
-{q:"If log 10=1, log 100=?",a:["1","2","3","10"],c:1,sub:"Maths"},{q:"Nearest to 'Abandon'",a:["Keep","Leave","Hold","Love"],c:1,sub:"English"},{q:"Atomic number Carbon?",a:["4","6","8","12"],c:1,sub:"Science"},{q:"JAMB total score?",a:["200","300","400","500"],c:2,sub:"English"},{q:"Derivative of x²?",a:["x","2x","x²","2"],c:1,sub:"Maths"},{q:"DNA full meaning?",a:["Deoxyribonucleic Acid","Diribonucleic Acid","Deoxy Acid","None"],c:0,sub:"Science"},{q:"2³ = ?",a:["6","8","9","4"],c:1,sub:"Maths"},{q:"Antonym of 'Ancient'?",a:["Old","Modern","Past","Early"],c:1,sub:"English"},{q:"Speed of light?",a:["300,000 km/s","150,000 km/s","100,000 km/s","500,000 km/s"],c:0,sub:"Science"},{q:"If 2x=18, x=?",a:["8","9","10","7"],c:1,sub:"Maths"},{q:"Which is correct?",a:["Their going","They're going","There going","Their go"],c:1,sub:"English"},{q:"H2SO4 is?",a:["Hydrochloric Acid","Sulphuric Acid","Nitric Acid","Acetic Acid"],c:1,sub:"Science"},{q:"Integral of 2x?",a:["x²","2x²","x","2"],c:0,sub:"Maths"},{q:"Synonym of 'Candid'?",a:["Rude","Honest","Proud","Shy"],c:1,sub:"English"},{q:"Which is vector?",a:["Speed","Velocity","Distance","Mass"],c:1,sub:"Science"},{q:"If x²=49, x=?",a:["6","7","8","9"],c:1,sub:"Maths"},{q:"Opposite of 'Expand'?",a:["Grow","Contract","Increase","Extend"],c:1,sub:"English"},{q:"Unit of current?",a:["Volt","Ampere","Ohm","Watt"],c:1,sub:"Science"},{q:"What is 5! ?",a:["20","60","120","100"],c:2,sub:"Maths"},{q:"Choose correct spelling",a:["Accomodation","Accommodation","Accomodotion","Accomadation"],c:1,sub:"English"},{q:"pH of neutral solution?",a:["5","6","7","8"],c:2,sub:"Science"},{q:"Log 1000 = ?",a:["2","3","4","10"],c:1,sub:"Maths"},{q:"Nearest to 'Enormous'?",a:["Tiny","Huge","Small","Little"],c:1,sub:"English"},{q:"Which organ produces insulin?",a:["Liver","Pancreas","Kidney","Heart"],c:1,sub:"Science"},{q:"Solve: 3x+2=14",a:["3","4","5","6"],c:1,sub:"Maths"},{q:"Antonym of 'Scarce'?",a:["Rare","Abundant","Few","Little"],c:1,sub:"English"},{q:"Which is noble gas?",a:["Oxygen","Argon","Nitrogen","Hydrogen"],c:1,sub:"Science"},{q:"What is 0.5 x 0.5?",a:["0.25","0.5","1","0.1"],c:0,sub:"Maths"},{q:"Past participle of 'Break'?",a:["Broke","Broken","Breaking","Breaked"],c:1,sub:"English"},{q:"Force unit?",a:["Joule","Newton","Watt","Volt"],c:1,sub:"Science"}
-],
-daily:[
-{q:"5 x 5 = ?",a:["20","25","30","15"],c:1,sub:"Maths"},{q:"Largest ocean?",a:["Atlantic","Indian","Pacific","Arctic"],c:2,sub:"Science"},{q:"Synonym of Happy?",a:["Sad","Joyful","Angry","Tired"],c:1,sub:"English"},{q:"Capital of Ghana?",a:["Accra","Lagos","Abuja","Kumasi"],c:0,sub:"English"},{q:"100 / 5 = ?",a:["10","20","25","15"],c:1,sub:"Maths"},{q:"Colour of sky?",a:["Green","Blue","Red","Yellow"],c:1,sub:"Science"},{q:"7 + 9 = ?",a:["15","16","17","14"],c:1,sub:"Maths"},{q:"Which animal barks?",a:["Cat","Dog","Goat","Cow"],c:1,sub:"Science"},{q:"Opposite of 'Day'?",a:["Morning","Night","Evening","Noon"],c:1,sub:"English"},{q:"What is 8 x 7?",a:["54","56","48","64"],c:1,sub:"Maths"}
-]
+// ===== QUESTIONS POOL - 30 per exam, game picks 20 no repeat =====
+const POOL={
+JAMB:[["What is 12 x 8?","86","96","108","98",1],["Capital of Nigeria?","Lagos","Abuja","Kano","Enugu",1],["Synonym of Happy?","Sad","Joyful","Angry","Tired",1],["What is H2O?","Salt","Water","Oxygen","Acid",1],["2+2x3=?","8","10","12","6",0],["Largest planet?","Mars","Jupiter","Venus","Earth",1],["Past tense of go?","Goed","Went","Gone","Going",1],["What is 100/4?","20","25","30","40",1],["Who wrote Romeo & Juliet?","Shakespeare","Achebe","Soyinka","Dickens",0],["Chemical symbol for Gold?","Ag","Au","Gd","Go",1],["What is 15% of 200?","20","25","30","35",2],["Antonym of Hot?","Warm","Cold","Heat","Fire",1],["Nigeria independence year?","1960","1963","1970","1959",0],["What is square root of 144?","12","14","16","11",0],["English: Plural of Child?","Childs","Children","Childes","Childrens",1],["What is 7x7?","47","48","49","50",2],["First President of Nigeria?","Azikiwe","Buhari","Obasanjo","Balewa",0],["What is 3^3?","9","18","27","81",2],["Synonym of Brave?","Fearful","Courageous","Weak","Shy",1],["Capital of Lagos State?","Ikeja","Lekki","Epe","Badagry",0],["What is 50-18?","32","30","34","28",0],["Who is author of Things Fall Apart?","Chinua Achebe","Wole Soyinka","Chimamanda","Ngugi",0],["What is 9x6?","54","56","52","48",0],["Largest ocean?","Atlantic","Pacific","Indian","Arctic",1],["What is 1000/10?","10","100","1000","50",1],["Antonym of Rich?","Poor","Wealthy","Strong","Happy",0],["What is 25+35?","55","60","65","70",1],["What gas do plants absorb?","Oxygen","Carbon Dioxide","Nitrogen","Hydrogen",1],["What is 5! (5 factorial)?","120","100","60","25",0],["Capital of Ghana?","Accra","Kumasi","Lome","Abuja",0]],
+WAEC:[["What is 10+15?","20","25","30","35",1],["What is past of eat?","Eated","Ate","Eaten","Eat",1],["What is 5x9?","45","40","50","35",0],["Capital of France?","Paris","London","Rome","Berlin",0],["What is H2SO4?","Sulphuric Acid","Hydrochloric","Nitric","Acetic",0],["What is 100-45?","55","45","65","50",0],["Synonym of Fast?","Slow","Quick","Lazy","Weak",1],["What is 8x8?","64","66","60","68",0],["Who was first man?","Adam","Noah","Moses","Abraham",0],["What is 20% of 100?","10","20","30","40",1],["What is plural of Woman?","Womans","Women","Womanses","Woman",1],["What is 12/3?","3","4","5","6",1],["What is boiling point of water?","90C","100C","110C","80C",1],["Antonym of Up?","Down","High","Top","Above",0],["What is 7+8?","14","15","16","13",1],["Capital of Kenya?","Nairobi","Mombasa","Kampala","Accra",0],["What is 3x4+2?","14","12","10","16",0],["What is photosynthesis?","Plant food making","Animal eating","Water boiling","Rock breaking",0],["What is 9-4?","4","5","6","3",1],["What is square of 9?","81","72","90","99",0],["What is 60/6?","9","10","11","12",1],["Synonym of Big?","Small","Huge","Tiny","Little",1],["What is 15x2?","25","30","35","20",1],["What is capital of Enugu?","Enugu","Onitsha","Owerri","Awka",0],["What is 100+200?","250","300","350","400",1],["What is 2^4?","8","12","16","20",2],["What is opposite of Love?","Like","Hate","Care","Joy",1],["What is 48/8?","5","6","7","8",1],["What is main source of energy?","Moon","Sun","Star","Fire",1],["What is 11x11?","121","111","122","110",0]],
+NECO:[["What is 6x6?","36","34","32","38",0],["What is capital of Nigeria?","Abuja","Lagos","Ibadan","Port Harcourt",0],["What is 20+30?","40","50","60","70",1],["Synonym of Good?","Bad","Nice","Wicked","Sad",1],["What is 90/9?","9","10","11","12",1],["What is 3+7?","9","10","11","12",1],["What is chemical for water?","H2O","CO2","O2","NaCl",0],["What is 100/5?","15","20","25","30",1],["What is past of run?","Runned","Ran","Running","Runs",1],["What is 4x7?","26","28","30","24",1],["Capital of Oyo?","Ibadan","Ogbomoso","Oyo","Iseyin",0],["What is 50+50?","90","100","110","120",1],["What is antonym of Day?","Night","Morning","Sun","Light",0],["What is 8+9?","16","17","18","19",1],["What is largest state in Nigeria?","Lagos","Niger","Kano","Borno",1],["What is 2x15?","25","30","35","40",1],["What is 12x2?","22","24","26","28",1],["What is 81/9?","7","8","9","10",2],["What is synonym of Smart?","Dull","Clever","Slow","Weak",1],["What is 5+5+5?","10","15","20","25",1],["What is capital of Ekiti?","Ado-Ekiti","Ikere","Ilawe","Efon",0],["What is 100-99?","0","1","2","3",1],["What is 7x3?","20","21","22","23",1],["What is 60-20?","30","40","50","60",1],["What is 9x9?","81","80","79","82",0],["What is 1+2+3?","5","6","7","8",1],["What is 40/4?","9","10","11","12",1],["What is 6+6+6?","16","17","18","19",2],["What is 10x10?","90","100","110","1000",1],["What is 33+33?","60","66","63","36",1]],
+BECE:[["What is 5+5?","9","10","11","12",1],["What is capital of Nigeria?","Abuja","Lagos","Kano","Ibadan",0],["What is 2x3?","5","6","7","8",1],["What is colour of sky?","Blue","Red","Green","Yellow",0],["What is 10-4?","5","6","7","8",1],["What is 4+4?","7","8","9","10",1],["What is 3x3?","6","9","12","8",1],["What is first letter?","A","B","C","D",0],["What is 20/2?","9","10","11","12",1],["What is 7+3?","9","10","11","12",1],["What is 9-3?","5","6","7","8",1],["What is 6x2?","10","12","14","16",1],["What is 15-5?","9","10","11","12",1],["What is 8/2?","3","4","5","6",1],["What is 1+1?","1","2","3","4",1],["What is 5x2?","8","10","12","14",1],["What is 12-2?","9","10","11","12",1],["What is 4x4?","14","15","16","17",2],["What is 30/3?","9","10","11","12",1],["What is 2+2+2?","4","5","6","7",2],["What is 18/3?","5","6","7","8",1],["What is 11+1?","11","12","13","14",1],["What is 9+9?","16","17","18","19",2],["What is 100/10?","9","10","11","12",1],["What is 7x2?","12","14","16","18",1],["What is 3+9?","11","12","13","14",1],["What is 25-5?","19","20","21","22",1],["What is 6+7?","12","13","14","15",1],["What is 4+9?","12","13","14","15",1],["What is 8+8?","14","15","16","17",2]],
+COMMON:[["What is 2+2?","3","4","5","6",1],["What is 3+3?","5","6","7","8",1],["What is 5-2?","2","3","4","5",1],["What is 10-5?","4","5","6","7",1],["What is 4x2?","6","8","10","12",1],["What is 2x5?","8","10","12","14",1],["What is 6+4?","9","10","11","12",1],["What is 9-4?","4","5","6","7",1],["What is 3x4?","10","12","14","16",1],["What is 20/2?","9","10","11","12",1],["What is 8+2?","9","10","11","12",1],["What is 7-3?","3","4","5","6",1],["What is 5x3?","13","14","15","16",2],["What is 12/4?","2","3","4","5",1],["What is 1+9?","9","10","11","12",1],["What is 6x3?","16","17","18","19",2],["What is 15-10?","4","5","6","7",1],["What is 7+7?","13","14","15","16",1],["What is 9+1?","9","10","11","12",1],["What is 4+6?","9","10","11","12",1],["What is 8-5?","2","3","4","5",1],["What is 2+8?","9","10","11","12",1],["What is 3+7?","9","10","11","12",1],["What is 5+5?","9","10","11","12",1],["What is 20-10?","9","10","11","12",1],["What is 6+6?","10","11","12","13",2],["What is 9+3?","11","12","13","14",1],["What is 4x3?","10","11","12","13",2],["What is 10+10?","19","20","21","22",1],["What is 30-20?","9","10","11","12",1]]
 };
-function shuffle(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-function getPool(){let b=Q[mode]||Q.daily;let p=subject=='Mixed'?b:b.filter(x=>x.sub==subject);return p.length?p:b;}
-function startGame(){document.getElementById('setup').style.display='none';document.getElementById('game').style.display='block';let pool=getPool();shuffledQueue=shuffle(pool).slice(0,QUESTIONS_PER_EXAM);totalQ=shuffledQueue.length;qIndex=0;scores={1:0,2:0};answeredCount={1:0,2:0};correctCount={1:0,2:0};lives=5;if(mode=='jamb'||mode=='waec'||mode=='neco')timeLeft=600;else if(mode=='junior')timeLeft=300;else if(mode=='primary')timeLeft=180;else timeLeft=60;nextQ();timerInt=setInterval(()=>{timeLeft--;let t=document.getElementById('timer');if(timeLeft>60){let m=Math.floor(timeLeft/60),s=timeLeft%60;t.innerText=m+':'+(s<10?'0':'')+s;}else t.innerText=timeLeft+'s';if(timeLeft<=0)endGame();},1000);}
-function nextQ(){if(qIndex>=shuffledQueue.length){endGame();return;}currentQ=shuffledQueue[qIndex];qIndex++;document.getElementById('prog').style.width=Math.min(100,(qIndex/totalQ)*100)+'%';let n1=document.getElementById('p1').value||'pius',n2=document.getElementById('p2').value||'peter';let curAv=turn==1?av1:av2,curName=turn==1?n1:n2;document.getElementById('topInfo').innerText=curAv+' '+curName+' • '+mode.toUpperCase()+' • Q'+qIndex+'/'+totalQ;document.getElementById('turnTxt').innerText=curAv+' '+curName;document.getElementById('q').innerText='Q'+qIndex+': '+currentQ.q;document.getElementById('score').innerText=scores[turn];document.getElementById('lives').innerText=lives;let h='';currentQ.a.forEach((o,i)=>{h+=`<button class="opt" onclick="answer(${i},this)"><b>${'ABCD'[i]}.</b> ${o}</button>`});document.getElementById('opts').innerHTML=h;}
-function answer(i,btn){answeredCount[turn]++;if(i==currentQ.c){correctCount[turn]++;scores[turn]+=100;coins+=10;saveCoins();sound('good');btn.style.background='#DCFCE7';btn.style.borderColor='#22C55E';}else{lives--;sound('bad');btn.style.background='#FEE2E2';if(lives<=0){endGame();return;}}turn=turn==1?2:1;setTimeout(nextQ,500);}
-function buyLife(){if(coins>=30){coins-=30;lives++;saveCoins();document.getElementById('lives').innerText=lives;sound('good');}else alert('Need 30 coins!');}
-function use5050(){if(coins>=10){coins-=10;saveCoins();let b=document.querySelectorAll('.opt');let w=[];b.forEach((x,idx)=>{if(idx!=currentQ.c)w.push(x)});w[0].style.display='none';w[1].style.display='none';sound('good');}else alert('Need 10 coins!');}
-// FIXED GRADE: Use PERCENTAGE, not total points
-function getGrade(){
-let winnerIdx=scores[1]>=scores[2]?1:2;
-let ans=answeredCount[winnerIdx]||1;
-let pct=Math.round((correctCount[winnerIdx]/ans)*100);
-let grade='',detail='',jambScore=0;
-if(mode=='jamb'){jambScore=Math.round(pct/100*400);grade=jambScore>=280?'Excellent - You go pass!':jambScore>=200?'Good - You fit enter Uni!':jambScore>=150?'Fair - Keep pushing!':'Keep practicing!';detail='JAMB Score: '+jambScore+'/400 ('+pct+'% correct)';}
-else if(mode=='waec'||mode=='neco'){grade=pct>=75?'A1 - EXCELLENT!':pct>=60?'B2 - Very Good!':pct>=50?'C4 - Credit!':pct>=40?'D7 - Pass!':'Keep Reading!';detail=mode.toUpperCase()+' Grade: '+grade.split(' - ')[0]+' ('+pct+'% correct)';}
-else if(mode=='junior'){grade=pct>=50?'PASS - Welcome to SS1!':'Try Again!';detail='BECE: '+pct+'% correct';}
-else if(mode=='primary'){grade=pct>=50?'PASS - Welcome to JSS1!':'Keep Trying, Champion!';detail='Common Entrance: '+pct+'% correct';}
-else{grade='Great Game!';detail='Daily: '+pct+'% correct';}
-return {grade,detail,jambScore,pct};
+let players=[],current=0,questions=[],qi=0,score=[0,0],correct=[0,0],coins=0,lives=5,timerInt=null,timeLeft=0,exam="",lastResult="";
+
+// ===== SOUND - No file needed, WebAudio =====
+function beep(freq,dur,type="sine"){try{let c=new (window.AudioContext||window.webkitAudioContext)();let o=c.createOscillator();let g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=freq;o.type=type;g.gain.value=0.2;o.start();o.stop(c.currentTime+dur);}catch(e){}}
+function soundCorrect(){beep(880,0.15);setTimeout(()=>beep(1200,0.2),120)}
+function soundWrong(){beep(200,0.3,"sawtooth")}
+function soundWin(){[523,659,784,1046].forEach((f,i)=>setTimeout(()=>beep(f,0.3),i*180))}
+function soundLose(){[400,300,200].forEach((f,i)=>setTimeout(()=>beep(f,0.3,"sawtooth"),i*180))}
+
+function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function startGame(){
+let p1=document.getElementById("p1").value.trim()||"pius";
+let p2=document.getElementById("p2").value.trim()||"peter";
+players=[p1,p2]; exam=document.getElementById("exam").value;
+let pool=[...POOL[exam]]; shuffle(pool); questions=pool.slice(0,20);
+qi=0;score=[0,0];correct=[0,0];coins=0;lives=5;current=0;
+let mins={JAMB:30,WAEC:20,NECO:20,BECE:15,COMMON:15}[exam];
+timeLeft=mins*60;
+document.getElementById("setup").classList.add("hidden");
+document.getElementById("game").classList.remove("hidden");
+document.getElementById("examLabel").innerText=exam;
+startTimer(); showQ();
 }
-function endGame(){clearInterval(timerInt);document.getElementById('game').style.display='none';document.getElementById('over').style.display='block';if(mode=='daily'){coins+=50;saveCoins();}let n1=document.getElementById('p1').value||'pius',n2=document.getElementById('p2').value||'peter';let winner=scores[1]>=scores[2]?n1:n2;let wAv=scores[1]>=scores[2]?av1:av2;if(winner.toLowerCase()=='pius')wins.pius++;else if(winner.toLowerCase()=='peter')wins.peter++;localStorage.setItem('eq_wins',JSON.stringify(wins));let g=getGrade();document.getElementById('examBadge').innerText=mode.toUpperCase()+' • RESULT • '+totalQ+' Questions';document.getElementById('finalScore').innerText=`${wAv} ${winner} Wins! • ${av1} ${n1}: ${scores[1]} (${correctCount[1]}/${answeredCount[1]} correct) | ${av2} ${n2}: ${scores[2]} (${correctCount[2]}/${answeredCount[2]} correct) • Coins ${coins}`;document.getElementById('examResult').innerText=g.grade;document.getElementById('gradeDetail').innerText=g.detail+' • '+mode.toUpperCase()+' Exam by EduQuest';window._final=Math.max(scores[1],scores[2]);window._winner=winner;window._wAv=wAv;window._grade=g.grade;window._detail=g.detail;window._jamb=g.jambScore;window._exam=mode.toUpperCase();window._pct=g.pct;}
-// FIXED WHATSAPP: Simple text, no broken emoji, with EXAM + GRADE + %
-function shareScore(){
-let txt='EduQuest V10.1 - ' + window._exam + ' EXAM RESULT\n\nWinner: ' + window._winner + '\nScore: ' + window._final + ' points\nAccuracy: ' + window._pct + '% correct\n' + window._detail + '\nGrade: ' + window._grade + '\n\nI just finished ' + window._exam + ' practice on EduQuest! Can you beat me?\nPlay now: https://piuscyber.github.io/EduQuest-Game/';
-window.open('https://wa.me/?text='+encodeURIComponent(txt));
+function startTimer(){
+clearInterval(timerInt);
+timerInt=setInterval(()=>{
+timeLeft--; let m=Math.floor(timeLeft/60); let s=timeLeft%60;
+let el=document.getElementById("timer"); el.innerText=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+if(timeLeft<=120) el.classList.add("low"); else el.classList.remove("low");
+if(timeLeft<=0){clearInterval(timerInt); finishGame(true);}
+},1000);
+}
+function showQ(){
+if(qi>=questions.length){finishGame(false);return;}
+let q=questions[qi];
+document.getElementById("turnLabel").innerText="Turn: "+players[current];
+document.getElementById("qCount").innerText="Q "+(qi+1)+"/20 • "+players[current];
+document.getElementById("qText").innerText=q[0];
+document.getElementById("coins").innerText=coins;
+document.getElementById("lives").innerText=lives;
+let optsDiv=document.getElementById("opts"); optsDiv.innerHTML="";
+let idx=[0,1,2,3]; // keep order simple for V10.2
+idx.forEach(i=>{
+let d=document.createElement("div"); d.className="opt"; d.innerText=["A. ","B. ","C. ","D. "][i]+q[i+1];
+d.onclick=()=>answer(i); optsDiv.appendChild(d);
+});
+}
+function answer(i){
+let q=questions[qi];
+if(i===q[5]){correct[current]++; score[current]+=20; coins+=10; soundCorrect();}
+else{lives--; soundWrong(); if(lives<=0){finishGame(false);return;}}
+qi++; current=1-current; showQ();
+}
+function use5050(){
+let opts=document.querySelectorAll(".opt"); let q=questions[qi]; let removed=0;
+opts.forEach((el,idx)=>{if(idx!==q[5] && removed<2){el.style.opacity="0.3"; el.onclick=null; removed++;}});
+}
+function grade(exam,pct){
+if(exam==="JAMB"){let s=Math.round(pct*4); return {score:s+"/400",grade:pct>=70?"Excellent - You go pass!":pct>=50?"Good - Keep pushing!":"Try Again - No give up!"};}
+if(exam==="WAEC"||exam==="NECO"){return {score:pct+"%",grade:pct>=75?"A1 - Excellent!":pct>=70?"B2 - Very Good!":pct>=60?"C4 - Good!":pct>=50?"D7 - Pass":"F9 - Try Again"};}
+return {score:pct+"%",grade:pct>=50?"PASS - You go pass!":"Try Again - No give up!"};
+}
+function finishGame(timeUp){
+clearInterval(timerInt);
+let winner = correct[0]>=correct[1]?0:1;
+let loser = 1-winner;
+let pct = Math.round((correct[winner]/20)*100);
+let g = grade(exam,pct);
+if(pct>=50) soundWin(); else soundLose();
+document.getElementById("game").classList.add("hidden");
+let res=document.getElementById("result"); res.classList.remove("hidden");
+document.getElementById("resTitle").innerText="🏆 Winner: "+players[winner]+"!";
+let txt="EduQuest V10.2 - "+exam+" EXAM RESULT\nWinner: "+players[winner]+"\nScore: "+(score[winner])+" points\nAccuracy: "+pct+"% correct\n"+exam+" Score: "+g.score+"\nGrade: "+g.grade+"\nLoser: "+players[loser]+" - "+Math.round((correct[loser]/20)*100)+"%";
+if(timeUp) txt+="\n⏱️ TIME UP! Exam auto-submitted";
+document.getElementById("resDetail").innerText=txt;
+lastResult=txt+"\nPlay now: https://piuscyber.github.io/EduQuest-Game/";
+// ===== FOREVER LEADERBOARD =====
+let board=JSON.parse(localStorage.getItem("eduquest_board")||"[]");
+board.push({name:players[winner],exam:exam,score:g.score,pct:pct,date:new Date().toLocaleDateString()});
+board.sort((a,b)=>b.pct-a.pct); board=board.slice(0,5);
+localStorage.setItem("eduquest_board",JSON.stringify(board));
+}
+function showBoard(){
+let board=JSON.parse(localStorage.getItem("eduquest_board")||"[]");
+if(!board.length){document.getElementById("board").innerHTML="<p>No wins yet. Play first!</p>";return;}
+let h="<table><tr><th>#</th><th>Name</th><th>Exam</th><th>Score</th></tr>";
+board.forEach((b,i)=>{h+="<tr><td>"+(i+1)+"</td><td>"+b.name+"</td><td>"+b.exam+"</td><td>"+b.score+" ("+b.pct+"%)</td></tr>";});
+document.getElementById("board").innerHTML=h+"</table><p style='font-size:12px'>Saved forever on this phone!</p>";
+}
+function shareResult(){
+let url="https://wa.me/?text="+encodeURIComponent(lastResult);
+window.open(url,"_blank");
 }
 </script>
 </body>
